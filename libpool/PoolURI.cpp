@@ -39,6 +39,10 @@ static map<string, SchemeAttributes> s_schemes = {
     {"stratum1+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS, 1}},
     {"stratum2+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS, 2}},
     {"stratum3+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS, 3}},
+    {"stratum+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 0}},
+    {"stratum1+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 1}},
+    {"stratum2+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 2}},
+    {"stratum3+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 3}},
     {"http", {ProtocolFamily::GETWORK, SecureLevel::NONE, 0}},
     {"getwork", {ProtocolFamily::GETWORK, SecureLevel::NONE, 0}},
 
