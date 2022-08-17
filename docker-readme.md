@@ -21,4 +21,4 @@ docker run --gpus all -e POOL="<Pool connection>" nsfminer
 
 ``` 
 For details on how to format <Pool connection> follow the link: 
-    https://github.com/ymg2006/nsfminer/blob/master/docs/POOL_EXAMPLES_ETH.md
+    https://github.com/no-fee-ethereum-mining/nsfminer/blob/master/docs/POOL_EXAMPLES_ETH.md

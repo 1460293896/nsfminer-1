@@ -77,15 +77,15 @@ static void headers(vector<string>& h, bool color) {
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "Copyright 2022 ymg2006, Licensed under the terms";
+    ss << white << "Copyright 2021 Jean M. Cyr, Licensed under the terms";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "of the GNU General Public License Version 3";
+    ss << white << " of the GNU General Public License Version 3";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "https://github.com/ymg2006/nsfminer";
+    ss << white << "https://github.com/no-fee-ethereum-mining/nsfminer";
     h.push_back(ss.str());
 
     ss.str("");

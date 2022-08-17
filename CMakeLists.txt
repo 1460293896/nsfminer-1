@@ -9,7 +9,7 @@
 if(UNIX)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -mtune=native")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 endif()
 
 cmake_minimum_required(VERSION 3.5)
@@ -34,7 +34,7 @@ HunterGate(
 )
 
 project(nsfminer)
-set(PROJECT_VERSION 1.3.15) # Update version
+set(PROJECT_VERSION 1.3.14) # Update version
 
 cable_set_build_type(DEFAULT Release CONFIGURATION_TYPES Release RelWithDebInfo)
 
@@ -43,8 +43,6 @@ option(ETHASHCUDA "Build with CUDA mining" ON)
 option(ETHASHCPU "Build with CPU mining (only for development)" OFF)
 option(APICORE "Build with API Server support" ON)
 option(DEVBUILD "Log developer metrics" OFF)
-option(USE_SYS_OPENCL "Build with system OpenCL" OFF)
-option(USE_SYS_LIBS "Build using system libs" OFF)
 
 # propagates CMake configuration options to the compiler
 function(configureProject)
@@ -63,30 +61,15 @@ function(configureProject)
     if (DEVBUILD)
         add_definitions(-DDEV_BUILD)
     endif()
-    if (USE_SYS_OPENCL)
-        add_definitions(-DUSE_SYS_OPENCL)
-    endif()
-    if (USE_SYS_LIBS)
-        add_definitions(-DUSE_SYS_LIBS)
-    endif()
 endfunction()
 
-if(USE_SYS_LIBS)
-    find_package(Boost REQUIRED COMPONENTS system filesystem thread program_options)
-else()
-    hunter_add_package(Boost COMPONENTS system filesystem thread program_options)
-    find_package(Boost CONFIG REQUIRED COMPONENTS system filesystem thread program_options)
-endif()
+hunter_add_package(Boost COMPONENTS system filesystem thread program_options)
+find_package(Boost CONFIG REQUIRED COMPONENTS system filesystem thread program_options)
 
 hunter_add_package(jsoncpp)
 find_package(jsoncpp CONFIG REQUIRED)
 
 configureProject()
-
-# why would you ever mine etherium on MacOS?
-if(APPLE OR USE_SYS_LIBS)
-    set(USE_SYS_OPENCL ON)
-endif()
 
 message("----------------------------------------------------------------------------")
 message("-- CMake ${CMAKE_VERSION}")
@@ -97,8 +80,6 @@ message("-- ETHASHCUDA       Build CUDA components                        ${ETHA
 message("-- ETHASHCPU        Build CPU components (only for development)  ${ETHASHCPU}")
 message("-- APICORE          Build API Server components                  ${APICORE}")
 message("-- DEVBUILD         Build with dev logging                       ${DEVBUILD}")
-message("-- USE_SYS_OPENCL   Build with system OpenCL                     ${USE_SYS_OPENCL}")
-message("-- USE_SYS_LIBS     Build with system Libraries                  ${USE_SYS_LIBS}")
 message("----------------------------------------------------------------------------")
 message("")
 

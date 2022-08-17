@@ -2,19 +2,15 @@
 
 ## Table of Contents
 
-- [Building from source](#building-from-source)
-  - [Table of Contents](#table-of-contents)
-  - [Requirements](#requirements)
-    - [Common](#common)
-    - [Linux](#linux)
-      - [ROCM](#rocm)
-      - [Arch Linux:](#arch-linux)
-      - [OpenCL support on Linux](#opencl-support-on-linux)
-    - [Windows](#windows)
-  - [Instructions](#instructions)
-    - [Windows-specific script](#windows-specific-script)
-  - [CMake configuration options](#cmake-configuration-options)
-  - [Disable Hunter](#disable-hunter)
+* [Requirements](#requirements)
+    * [Common](#common)
+    * [Linux](#linux)
+        * [OpenCL support on Linux](#opencl-support-on-linux)
+    * [Windows](#windows)
+* [CMake configuration options](#cmake-configuration-options)
+* [Disable Hunter](#disable-hunter)
+* [Instructions](#instructions)
+    * [Windows-specific script](#windows-specific-script)
 
 
 ## Requirements
@@ -36,14 +32,6 @@ This project uses [CMake] and [Hunter] package manager.
 ```shell
 sudo apt install libdbus-1-dev
 ```
-#### ROCM
-
-#### Arch Linux:
-You want to install ROCM from [here](https://github.com/rocm-arch/rocm-arch). If you want to download pre-built packages, [add arch4edu](https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux) to pacman.
-Then run:
-```shell
-sudo pacman -S rocm-dev rocm-utils rocm-libs rocm-opencl-runtime
-```
 
 #### OpenCL support on Linux
 
@@ -53,8 +41,6 @@ you have to install the OpenGL libraries. E.g. on Ubuntu run:
 ```shell
 sudo apt-get install mesa-common-dev
 ```
-
-If you want to use the system OpenCL installation or wish to use [ROCm-OpenCL](https://rocmdocs.amd.com/en/latest/), use build flag `-DUSE_SYS_OPENCL=ON` with cmake config.
 
 These are sufficient for Ubuntu LTS releases. Other packages may be needed depending on your distrubution.
 
@@ -78,6 +64,7 @@ These are sufficient for Ubuntu LTS releases. Other packages may be needed depen
     ```
 
 3. Configure the project with CMake. Check out the additional [configuration options](#cmake-configuration-options).
+
     ```shell
     cmake ..
     ```
@@ -155,8 +142,6 @@ cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF
 * `-DAPICORE=ON` - enable API Server, `ON` by default.
 * `-DBINKERN=ON` - install AMD binary kernels, `OFF` by default.
 * `-DETHDBUS=ON` - enable D-Bus support, `OFF` by default.
-* `-DUSE_SYS_OPENCL=ON` - Use system OpenCL, `OFF` by default, unless on macOS or `USE_SYS_LIBS` is on. Specify to use local **ROCm-OpenCL** package.
-* `-DUSE_SYS_LIBS=ON` - Use system libraries, `OFF` by default.
 
 ## Disable Hunter
 

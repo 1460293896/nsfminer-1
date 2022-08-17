@@ -2,31 +2,30 @@
 
 ## Table of Contents
 
-- [nsfminer's API documentation](#nsfminers-api-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Activation and Security](#activation-and-security)
-  - [Usage](#usage)
-  - [List of requests](#list-of-requests)
-    - [api_authorize](#api_authorize)
-    - [miner_ping](#miner_ping)
-    - [miner_getstatdetail](#miner_getstatdetail)
-    - [miner_getstat1](#miner_getstat1)
-    - [miner_restart](#miner_restart)
-    - [miner_reboot](#miner_reboot)
-    - [miner_getconnections](#miner_getconnections)
-    - [miner_setactiveconnection](#miner_setactiveconnection)
-    - [miner_addconnection](#miner_addconnection)
-    - [miner_removeconnection](#miner_removeconnection)
-    - [miner_pausegpu](#miner_pausegpu)
-    - [miner_setverbosity](#miner_setverbosity)
-    - [miner_setnonce](#miner_setnonce)
-    - [miner_getnonce](#miner_getnonce)
+* [Introduction](#introduction)
+* [Activation and Security](#activation-and-security)
+* [Usage](#usage)
+* [List of requests](#list-of-requests)
+    * [api_authorize](#api_authorize)
+    * [miner_ping](#miner_ping)
+    * [miner_getstatdetail](#miner_getstatdetail)
+    * [miner_getstat1](#miner_getstat1)
+    * [miner_restart](#miner_restart)
+    * [miner_reboot](#miner_reboot)
+    * [miner_getconnections](#miner_getconnections)
+    * [miner_setactiveconnection](#miner_setactiveconnection)
+    * [miner_addconnection](#miner_addconnection)
+    * [miner_removeconnection](#miner_removeconnection)
+    * [miner_pausegpu](#miner_pausegpu)
+    * [miner_setverbosity](#miner_setverbosity)
+    * [miner_setnonce](#miner_setnonce)
+    * [miner_getnonce](#miner_getnonce)
 
 ## Introduction
 
 nsfminer implements an API (Application Programming Interface) interface which allows to monitor/control some of the run-time values endorsed by this miner. The API interface is available under the following circumstances:
 
+* If you're using a binary release downloaded from the [releases](https://github.com/miscellaneousbits/nsfminer/releases) section of this repository
 * If you build the application from source ensuring you add the compilation switch `-D APICORE=ON`
 
 ## Activation and Security
